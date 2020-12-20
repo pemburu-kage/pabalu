@@ -154,7 +154,7 @@ getListKeranjang = () => {
                     ))}
                 </Row>
               </Col>
-              <Hasil keranjangs={keranjangs}/>
+              <Hasil keranjangs={keranjangs} {...this.props}/>
             </Row>
           </Container>
         </div>

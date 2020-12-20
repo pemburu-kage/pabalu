@@ -5,3 +5,4 @@
 5. Membuat Keranjang Pemesanan
 6. Add React Router DOM
 7. Mengatasi Infinite Loop Component DidUpdate
+8. Membuat Total Bayar & Aksi Pemesanan
