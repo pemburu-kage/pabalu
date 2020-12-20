@@ -6,3 +6,4 @@
 6. Add React Router DOM
 7. Mengatasi Infinite Loop Component DidUpdate
 8. Membuat Total Bayar & Aksi Pemesanan
+9. Membuat Modal Edit Pemesanan
