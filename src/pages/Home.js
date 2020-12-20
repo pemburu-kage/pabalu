@@ -27,30 +27,34 @@ export default class Home extends Component {
         console.log("Error yaa ", error);
       });
 
-    axios
-      .get(API_URL + "keranjangs")
-      .then((res) => {
-        const keranjangs = res.data;
-        this.setState({ keranjangs });
-      })
-      .catch((error) => {
-        console.log("Error yaa ", error);
-      });
+    this.getListKeranjang();
   }
 
-  componentDidUpdate(prevState) {
-    if(this.state.keranjangs !== prevState.keranjangs) {
-      axios
-      .get(API_URL + "keranjangs")
-      .then((res) => {
-        const keranjangs = res.data;
-        this.setState({ keranjangs });
-      })
-      .catch((error) => {
-        console.log("Error yaa ", error);
-      });
-    }
-  }
+//   componentDidUpdate(prevState) {
+//     if(this.state.keranjangs !== prevState.keranjangs) {
+//       axios
+//       .get(API_URL + "keranjangs")
+//       .then((res) => {
+//         const keranjangs = res.data;
+//         this.setState({ keranjangs });
+//       })
+//       .catch((error) => {
+//         console.log("Error yaa ", error);
+//       });
+//     }
+//   }
+
+getListKeranjang = () => {
+    axios
+    .get(API_URL + "keranjangs")
+    .then((res) => {
+      const keranjangs = res.data;
+      this.setState({ keranjangs });
+    })
+    .catch((error) => {
+      console.log("Error yaa ", error);
+    });
+}
 
   changeCategory = (value) => {
     this.setState({
@@ -83,6 +87,7 @@ export default class Home extends Component {
           axios
             .post(API_URL + "keranjangs", keranjang)
             .then((res) => {
+              this.getListKeranjang();
               swal.fire({
                 title: "Berhasil",
                 text: keranjang.product.nama + " sukses masuk keranjang!",
@@ -104,6 +109,7 @@ export default class Home extends Component {
           axios
             .put(API_URL + "keranjangs/" + res.data[0].id, keranjang)
             .then((res) => {
+                this.getListKeranjang();
               swal.fire({
                 title: "Berhasil",
                 text: keranjang.product.nama + " sukses masuk keranjang!",
